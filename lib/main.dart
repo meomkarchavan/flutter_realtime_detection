@@ -6,9 +6,10 @@ import 'home.dart';
 List<CameraDescription> cameras;
 
 Future<Null> main() async {
-   WidgetsFlutterBinding.ensureInitialized ();
+  WidgetsFlutterBinding.ensureInitialized();
   try {
     cameras = await availableCameras();
+    print('done');
   } on CameraException catch (e) {
     print('Error: $e.code\nError Message: $e.message');
   }
@@ -18,6 +19,7 @@ Future<Null> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print('here');
     return MaterialApp(
       title: 'tflite real-time detection',
       theme: ThemeData(
